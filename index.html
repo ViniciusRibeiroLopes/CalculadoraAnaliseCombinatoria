@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora minimalista de Análise Combinatória para calcular Permutações, Arranjos e Combinações.">
+    <title>Calculadora de Análise Combinatória</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle-container">
+        <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">🌙 Escuro</button>
+    </div>
+
+    <main class="container">
+        <h1>Análise Combinatória</h1>
+        
+        <nav class="tabs" aria-label="Navegação da Calculadora">
+            <button class="tab-btn active" id="btn-perm-simples" onclick="showTab('perm-simples')" aria-selected="true" aria-controls="perm-simples">Permutação</button>
+            <button class="tab-btn" id="btn-perm-rep" onclick="showTab('perm-rep')" aria-selected="false" aria-controls="perm-rep">Perm. c/ Repetição</button>
+            <button class="tab-btn" id="btn-arranjo" onclick="showTab('arranjo')" aria-selected="false" aria-controls="arranjo">Arranjo</button>
+            <button class="tab-btn" id="btn-combinacao" onclick="showTab('combinacao')" aria-selected="false" aria-controls="combinacao">Combinação</button>
+        </nav>
+
+        <section class="calculator">
+            <!-- Permutação Simples -->
+            <div id="perm-simples" class="tab-content active" role="tabpanel" aria-labelledby="btn-perm-simples">
+                <h2>Permutação Simples: P(n)</h2>
+                <div class="input-group">
+                    <label for="ps-n">Valor de n (total de elementos):</label>
+                    <input type="number" id="ps-n" min="0" placeholder="Ex: 5" required>
+                </div>
+                <button class="calc-btn" onclick="calcPermSimples()">Calcular</button>
+            </div>
+
+            <!-- Permutação com Repetição -->
+            <div id="perm-rep" class="tab-content" role="tabpanel" aria-labelledby="btn-perm-rep">
+                <h2>Permutação com Repetição: P(n; r1, r2...)</h2>
+                <div class="input-group">
+                    <label for="pr-n">Valor de n (total de elementos):</label>
+                    <input type="number" id="pr-n" min="0" placeholder="Ex: 10" required>
+                </div>
+                <div class="input-group">
+                    <label for="pr-reps">Repetições (separadas por vírgula):</label>
+                    <input type="text" id="pr-reps" placeholder="Ex: 2, 3, 1" required>
+                </div>
+                <button class="calc-btn" onclick="calcPermRep()">Calcular</button>
+            </div>
+
+            <!-- Arranjo Simples -->
+            <div id="arranjo" class="tab-content" role="tabpanel" aria-labelledby="btn-arranjo">
+                <h2>Arranjo Simples: A(n, p)</h2>
+                <div class="input-group">
+                    <label for="arr-n">Valor de n (total de elementos):</label>
+                    <input type="number" id="arr-n" min="0" placeholder="Ex: 10" required>
+                </div>
+                <div class="input-group">
+                    <label for="arr-p">Valor de p (elementos escolhidos):</label>
+                    <input type="number" id="arr-p" min="0" placeholder="Ex: 3" required>
+                </div>
+                <button class="calc-btn" onclick="calcArranjo()">Calcular</button>
+            </div>
+
+            <!-- Combinação Simples -->
+            <div id="combinacao" class="tab-content" role="tabpanel" aria-labelledby="btn-combinacao">
+                <h2>Combinação Simples: C(n, p)</h2>
+                <div class="input-group">
+                    <label for="comb-n">Valor de n (total de elementos):</label>
+                    <input type="number" id="comb-n" min="0" placeholder="Ex: 10" required>
+                </div>
+                <div class="input-group">
+                    <label for="comb-p">Valor de p (elementos escolhidos):</label>
+                    <input type="number" id="comb-p" min="0" placeholder="Ex: 3" required>
+                </div>
+                <button class="calc-btn" onclick="calcCombinacao()">Calcular</button>
+            </div>
+
+            <div class="result-container" id="result-container">
+                <h3>Resultado</h3>
+                <p id="result-text">-</p>
+                <div id="formula-text" class="formula"></div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

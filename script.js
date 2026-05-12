@@ -5,10 +5,10 @@ function toggleTheme() {
     
     if (currentTheme === 'dark') {
         htmlEl.setAttribute('data-theme', 'light');
-        btn.innerText = '🌙 Escuro';
+        btn.innerText = '🌙';
     } else {
         htmlEl.setAttribute('data-theme', 'dark');
-        btn.innerText = '☀️ Claro';
+        btn.innerText = '☀️';
     }
 }
 
